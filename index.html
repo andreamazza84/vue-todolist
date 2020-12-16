@@ -10,84 +10,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <title>VueDoo List</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            color: #ddd;
-            background-color: #111;
-
-        }
-        .container{
-            width: 80%;
-            min-height: 100vh;
-            margin: auto; 
-            background-image: url(img/voodoo_doll.webp);
-            background-position: center;
-        }
-        .filter{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            min-height: 100vh;
-            background-color: rgba(0,0,0,0.5);
-        }
-        #header{
-            margin-bottom: 40px;
-            font-family: 'Langar', cursive;
-        }
-        #header > h1{
-            font-size: 50px;
-        }
-        #input{
-            font-family: 'Architects Daughter', cursive;
-            margin-bottom: 40px;
-        }
-        .btn{
-            font-family: 'Architects Daughter', cursive;
-            color: #222;
-            background-color: rgb(241, 93, 40);
-            border: 2px solid #222;
-            min-height: 45px;
-            border-radius: 3px;
-            padding: 5px;
-        }
-        #input > input{
-            font-size: 22px;
-            min-width: 160px;
-        }
-        #input > button{
-            font-size: 16px;
-            margin-left: 10px;
-        }
-        #list{
-            font-family: 'Architects Daughter', cursive;
-            text-align: right;
-        }
-        #list > ul{
-            background-color: rgba(0,0,0,0.8);
-            padding: 20px;
-            border-radius: 5px;
-        }
-        #list > ul > li{
-            list-style: none;
-            font-size: 25px;
-            padding: 2px 0;
-        }
-        #list .alert{
-            text-align: center;
-            font-size: 30px;    
-        }
-    </style>
+    <!-- Foglio di stile -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="filter">
+            
             <header id="header">
                 <h1> 
                     <i class="fas fa-ghost"></i> 
@@ -97,7 +26,7 @@
 
             <section id="input">
                 <!-- v-model per leggere il contenuto e legarlo alla varibile e v-on per avviare la function da tastiera -->
-                <input type="text" class="btn" v-model="inputTask" v-on:keydown.enter="addTask" minlength="5" placeholder="Nuovo task...">
+                <input type="text" class="btn" v-model="inputTask" v-on:keydown.enter="addTask" minlength="5" :placeholder="inputHolder">
                 <!-- Cliccando sul bottone Add viene aggiungo un elemento alla lista con la funzione addTask. -->
                 <button type="submit" class="btn" @click="addTask">Add</button>
             </section> <!-- /#input-->
@@ -111,16 +40,14 @@
                     <!-- Il ciclo v-for per fare apparire tanti li quanti gli elementi della lista -->
                     <li v-for="(task, index) in inputList">{{task}}
                         <!-- Cliccando sulla X viene lanciata la funzione removeTask con argomento index, noto dal ciclo v-for -->
-                        <i class="fas fa-skull-crossbones" @click="removeTask(index)"></i>
+                        <i class="fas fa-skull-crossbones remove" @click="removeTask(index)"></i>
                     </li>
                 </ul>
             </section> <!-- /#list-->
+
         </div> <!-- /Filter-->
     </div> <!-- /Container-->
     
-      
-
-
     <!-- Script -->
     <!-- VueJs CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

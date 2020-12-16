@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    color: #ddd;
+    background-color: #222;
+}
+.container{
+    width: 80%;
+    min-height: 100vh;
+    margin: auto; 
+    background-image: url(img/voodoo_doll.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.filter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+}
+#header{
+    margin-bottom: 40px;
+    font-family: 'Langar', cursive;
+}
+#header > h1{
+    font-size: 50px;
+    color:rgb(241, 93, 40);
+    text-shadow: 2px 2px #222;
+}
+#header > h1 > i{
+    color: #222;
+    text-shadow: 2px 2px rgb(241, 93, 40);
+    margin: 0 20px;
+}
+#input{
+    display: flex;
+    font-family: 'Architects Daughter', cursive;
+    margin-bottom: 40px;
+}
+.btn{
+    font-family: 'Architects Daughter', cursive;
+    color: #222;
+    background-color: rgb(241, 93, 40);
+    border: 2px solid #222;
+    min-height: 45px;
+    border-radius: 3px;
+    padding: 5px;
+}
+#input > input{
+    font-size: 22px;
+    min-width: 160px;
+}
+#input > button{
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+#list{
+    font-family: 'Architects Daughter', cursive;
+    text-align: right;
+}
+#list > ul{
+    background-color: rgba(0,0,0,0.9);
+    padding: 20px;
+    border-radius: 5px;
+}
+#list > ul > li{
+    list-style: none;
+    font-size: 25px;
+    padding: 2px 0;
+}
+#list .remove{
+    margin-left: 20px;
+}
+#list .alert{
+    text-align: center;
+    font-size: 30px;    
+}

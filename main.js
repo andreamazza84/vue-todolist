@@ -20,31 +20,47 @@ let app = new Vue({
             "Aprire un pollo",
             "Cucinare il vicino di casa"
         ],
-        noTasksMessage: 'Time for relax',
+        noTasksMessage: '...Time for relax...',
         noTasks: false,
+        doubleTask: false,
+        inputHolder: "New task...",
     },
     methods: {
-        addTask: function(){
+        addTask: function(){            
             if (app.inputTask.length > 4) {
-                //aggiunge l'elemento all'inizio dell'array
-                app.inputList.unshift(app.inputTask)
-                app.inputTask = '';
+                //Azzero il valore del doppio inserimento
+                app.doubleTask = false;
+                //Se inseriamo una task la seguente condizione sarà ovviamente falsa.
+                app.noTasks = false;
+                //Reset dell'placeholder
+                app.inputHolder = 'New task...';
+                //Quello che inserisco deve essere con la prima lettera maiuscola
+                app.inputTask = app.inputTask.charAt(0).toUpperCase() + app.inputTask.slice(1);
+                
+                //controlla che non venga inserito un elemento già presente nella lista 
+                app.inputList.forEach(element => {
+                    if (element === app.inputTask) {
+                        app.doubleTask = true;
+                        app.inputTask = ''; 
+                        app.inputHolder = 'Item  already added'                    }               
+                });
+
+                //aggiunge l'elemento all'inizio dell'array se non già presente
+                if (!app.doubleTask) {
+                    app.inputList.unshift(app.inputTask)
+                    app.inputTask = ''; 
+                }
             }
-            //Se inseriamo una task la seguente condizione sarà ovviamente falsa.
-            app.noTasks = false;
         },
         removeTask: function(index){
+            //Reset dell'placeholder
+            app.inputHolder = 'New task...';
             //rimuove un'elemento dall'array, quello in posizione index 
             app.inputList.splice(index, 1);
             //Mi restituisce una variabile true quando non ci sono più task
             if (app.inputList.length === 0) {
                 app.noTasks = true;
             }
-        }
-    }
+        },
+    },
 });
-
-// document.addEventListener('keydown', function(e){
-//     console.log(this);
-// });
-
