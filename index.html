@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueDoo List</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            color: #fafafa;
+            background-color: #234;
+
+        }
+        .container{
+            width: 80%;
+            min-height: 100vh;
+            margin: auto; 
+            background-image: url(img/voodoo_doll.webp);
+            background-position: center;
+        }
+        .filter{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgba(0,0,0,0.6);
+        }
+        img.wallpaper{
+            width: 100%;
+        }
+        input{
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="filter">
+            <header id="header">
+                <h1>To Do List</h1>
+            </header>
+            <section id="input">
+                <input type="text">
+            </section>
+            <section id="list">
+                <ul>
+                    <li>Uno</li>
+                    <li>Due</li>
+                    <li>Tre</li>
+                </ul>
+        </div>
+    </div>
+    
+    </section>   
+
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
