@@ -62,6 +62,7 @@
         }
         #list{
             font-family: 'Architects Daughter', cursive;
+            text-align: right;
         }
         #list > ul > li{
             list-style: none;
@@ -73,16 +74,20 @@
     <div class="container">
         <div class="filter">
             <header id="header">
-                <h1>Vue-Doo List</h1>
+                
+                <h1> <i class="fas fa-ghost"></i> Vue-Doo List <i class="fas fa-ghost"></i></h1>
+                
             </header>
             <section id="input">
-                <input type="text">
+                <input type="text" v-model="inputTask">
+                <button type="submit" @click="addTask">Aggiungi</button>
             </section>
             <section id="list">
                 <ul>
-                    <li>Uno <i class="fas fa-skull-crossbones"></i></li>
-                    <li>Due <i class="fas fa-skull-crossbones"></i></li>
-                    <li>Tre <i class="fas fa-skull-crossbones"></i></li>
+                    <!-- <li v-for:><i class="fas fa-skull-crossbones"></i></li> -->
+                    <li>Comprare le zucche <i class="fas fa-skull-crossbones"></i></li>
+                    <li>Pulire il calderone <i class="fas fa-skull-crossbones"></i></li>
+                    <li>Aprire un pollo <i class="fas fa-skull-crossbones"></i></li>
                 </ul>
         </div>
     </div>

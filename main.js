@@ -9,3 +9,21 @@
 // della tastiera.
 // Attenzione: l'utente non deve inserire tasks vuote
 // ma almeno un tot di caratteri.
+
+let app = new Vue({
+    el: '.container',
+    data: {
+        inputTask: '',
+        inputList: []
+    },
+    methods: {
+        addTask: function(){
+            if (app.inputTask.length > 4) {
+                alert('Qui');
+                app.inputList.push(app.inputTask)
+                app.inputTask = '';
+            }
+            return app.inputList;
+        }
+    }
+});
