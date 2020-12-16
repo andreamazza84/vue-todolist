@@ -79,13 +79,18 @@
                 
             </header>
             <section id="input">
-                <input type="text" v-model="inputTask">
+                <input type="text" v-model="inputTask" minlength="5">
                 <button type="submit" @click="addTask">Aggiungi</button>
             </section>
             <section id="list">
                 <ul>
-                    <li v-for="task in inputList">{{task}}<i class="fas fa-skull-crossbones"></i></li>
+                    <li v-for="(task, index) in inputList">{{task}}
+                        <i class="fas fa-skull-crossbones" @click="removeTask(index)"></i>
+                    </li>
                 </ul>
+                <div class="alert" v-if="noTasks">{{noTasksMessage}}</div>
+                <div class="alert" v-else></div>
+
         </div>
     </div>
     

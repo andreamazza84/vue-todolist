@@ -18,19 +18,26 @@ let app = new Vue({
             "Comprare le zucche",
             "Pulire il calderone",
             "Aprire un pollo"
-        ]
+        ],
+        noTasksMessage: 'Nulla da fare',
+        noTasks: false,
     },
     methods: {
         addTask: function(){
             if (app.inputTask.length > 4) {
-                alert('Qui');
-                app.inputList.push(app.inputTask)
+                app.inputList.unshift(app.inputTask)
                 app.inputTask = '';
             }
-            return app.inputList;
+            //Se inseriamo una task la seguente condizione sarà ovviamente falsa.
+            app.noTasks = false;
         },
-        updateList: function(){
-
+        removeTask: function(index){
+            app.inputList.splice(index, 1);
+            //Mi restituisce una variabile true quando non ci sono più task
+            if (app.inputList.length === 0) {
+                app.noTasks = true;
+            }
         }
     }
 });
+
