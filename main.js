@@ -25,6 +25,7 @@ let app = new Vue({
     methods: {
         addTask: function(){
             if (app.inputTask.length > 4) {
+                //aggiunge l'elemento all'inizio dell'array
                 app.inputList.unshift(app.inputTask)
                 app.inputTask = '';
             }
@@ -32,6 +33,7 @@ let app = new Vue({
             app.noTasks = false;
         },
         removeTask: function(index){
+            //rimuove un'elemento dall'array, quello in posizione index 
             app.inputList.splice(index, 1);
             //Mi restituisce una variabile true quando non ci sono più task
             if (app.inputList.length === 0) {

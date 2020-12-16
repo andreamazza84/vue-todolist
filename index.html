@@ -17,8 +17,8 @@
             box-sizing: border-box;
         }
         body{
-            color: #fafafa;
-            background-color: #1b0e06;
+            color: #ddd;
+            background-color: #111;
 
         }
         .container{
@@ -35,7 +35,7 @@
             justify-content: center;
             width: 100%;
             min-height: 100vh;
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0,0,0,0.7);
         }
         #header{
             margin-bottom: 40px;
@@ -44,16 +44,13 @@
         #header > h1{
             font-size: 50px;
         }
-        img.wallpaper{
-            width: 100%;
-        }
         #input{
             font-family: 'Architects Daughter', cursive;
             margin-bottom: 40px;
         }
         #input > input{
             color: #222;
-            background-color: rgb(177, 40, 40);
+            background-color: rgb(133, 39, 39);
             border: 2px solid #222;
             min-height: 25px;
             min-width: 160px;
@@ -64,9 +61,18 @@
             font-family: 'Architects Daughter', cursive;
             text-align: right;
         }
+        #list > ul{
+            background-color: rgba(0,0,0,0.6);
+            padding: 20px;
+            border-radius: 5px;
+        }
         #list > ul > li{
             list-style: none;
             font-size: 25px;
+        }
+        #list .alert{
+            text-align: center;
+            font-size: 30px;    
         }
     </style>
 </head>
@@ -74,27 +80,35 @@
     <div class="container">
         <div class="filter">
             <header id="header">
-                
-                <h1> <i class="fas fa-ghost"></i> Vue-Doo List <i class="fas fa-ghost"></i></h1>
-                
+                <h1> 
+                    <i class="fas fa-ghost"></i> 
+                    Vue-Doo List <i class="fas fa-ghost"></i>
+                </h1>
             </header>
+
             <section id="input">
                 <input type="text" v-model="inputTask" minlength="5">
-                <button type="submit" @click="addTask">Aggiungi</button>
-            </section>
+                <!-- Cliccando sul bottone Add viene aggiungo un elemento alla lista con la funzione addTask. -->
+                <button type="submit" @click="addTask">Add</button>
+            </section> <!-- /#input-->
+
             <section id="list">
-                <ul>
+                <!-- V-if per fare apparire il messaggio quando la lista è vuota -->
+                <ul v-if="noTasks">
+                    <li>{{noTasksMessage}}</li>
+                </ul>
+                <ul v-else>
+                    <!-- Il ciclo v-for per fare apparire tanti li quanti gli elementi della lista -->
                     <li v-for="(task, index) in inputList">{{task}}
+                        <!-- Cliccando sulla X viene lanciata la funzione removeTask con argomento index, noto dal ciclo v-for -->
                         <i class="fas fa-skull-crossbones" @click="removeTask(index)"></i>
                     </li>
                 </ul>
-                <div class="alert" v-if="noTasks">{{noTasksMessage}}</div>
-                <div class="alert" v-else></div>
-
-        </div>
-    </div>
+            </section> <!-- /#list-->
+        </div> <!-- /Filter-->
+    </div> <!-- /Container-->
     
-    </section>   
+      
 
 
     <!-- Script -->
