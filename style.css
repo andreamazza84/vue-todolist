@@ -4,16 +4,16 @@
     box-sizing: border-box;
 }
 body{
-    color: #ddd;
-    background-color: #222;
+    color: #ddd; 
 }
 .container{
-    width: 80%;
+    width: 100%;
     min-height: 100vh;
     margin: auto; 
     background-image: url(img/voodoo_doll.webp);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 .filter{
     display: flex;
@@ -22,7 +22,10 @@ body{
     justify-content: flex-start;
     width: 100%;
     min-height: 100vh;
-    background-color: rgba(0,0,0,0.5);
+    padding: 40px;
+    background: #EB5757;
+    background: -webkit-linear-gradient(to right, rgba(0,0,0,0.5), rgba(0, 0, 0, 0.9));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0, 0, 0, 0.9));
 }
 #header{
     margin-bottom: 40px;
@@ -30,13 +33,16 @@ body{
 }
 #header > h1{
     font-size: 50px;
-    color:rgb(241, 93, 40);
+    color:#f15d28;
     text-shadow: 2px 2px #222;
 }
-#header > h1 > i{
+#header > h1 > i.fa-ghost{
     color: #222;
-    text-shadow: 2px 2px rgb(241, 93, 40);
+    text-shadow: 2px 2px #f12857;
     margin: 0 20px;
+}
+#header > h1 > span{
+    color: #f12857;
 }
 #input{
     display: flex;
@@ -54,30 +60,42 @@ body{
 }
 #input > input{
     font-size: 22px;
-    min-width: 160px;
+    min-width: 270px;
+}
+#input > input:invalid{
+  background-color: #f12857;
 }
 #input > button{
     font-size: 16px;
     font-weight: 600;
     margin-left: 10px;
     padding: 5px 10px;
+    cursor: pointer;
+}
+#input > button:hover{
+    background-color: #f12857;
 }
 #list{
     font-family: 'Architects Daughter', cursive;
     text-align: right;
 }
 #list > ul{
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.8);
     padding: 20px;
     border-radius: 5px;
 }
 #list > ul > li{
+    color: #f1c228;
     list-style: none;
-    font-size: 25px;
+    font-size: 20px;
     padding: 2px 0;
 }
 #list .remove{
     margin-left: 20px;
+    cursor: pointer;
+}
+#list .remove:hover{
+    color: #f12857;
 }
 #list .alert{
     text-align: center;
