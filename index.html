@@ -35,7 +35,7 @@
             justify-content: center;
             width: 100%;
             min-height: 100vh;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0,0,0,0.5);
         }
         #header{
             margin-bottom: 40px;
@@ -48,27 +48,36 @@
             font-family: 'Architects Daughter', cursive;
             margin-bottom: 40px;
         }
-        #input > input{
+        .btn{
+            font-family: 'Architects Daughter', cursive;
             color: #222;
-            background-color: rgb(133, 39, 39);
+            background-color: rgb(241, 93, 40);
             border: 2px solid #222;
-            min-height: 25px;
-            min-width: 160px;
+            min-height: 45px;
             border-radius: 3px;
             padding: 5px;
+        }
+        #input > input{
+            font-size: 22px;
+            min-width: 160px;
+        }
+        #input > button{
+            font-size: 16px;
+            margin-left: 10px;
         }
         #list{
             font-family: 'Architects Daughter', cursive;
             text-align: right;
         }
         #list > ul{
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0,0,0,0.8);
             padding: 20px;
             border-radius: 5px;
         }
         #list > ul > li{
             list-style: none;
             font-size: 25px;
+            padding: 2px 0;
         }
         #list .alert{
             text-align: center;
@@ -87,9 +96,10 @@
             </header>
 
             <section id="input">
-                <input type="text" v-model="inputTask" minlength="5">
+                <!-- v-model per leggere il contenuto e legarlo alla varibile e v-on per avviare la function da tastiera -->
+                <input type="text" class="btn" v-model="inputTask" v-on:keydown.enter="addTask" minlength="5" placeholder="Nuovo task...">
                 <!-- Cliccando sul bottone Add viene aggiungo un elemento alla lista con la funzione addTask. -->
-                <button type="submit" @click="addTask">Add</button>
+                <button type="submit" class="btn" @click="addTask">Add</button>
             </section> <!-- /#input-->
 
             <section id="list">

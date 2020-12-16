@@ -17,9 +17,10 @@ let app = new Vue({
         inputList: [
             "Comprare le zucche",
             "Pulire il calderone",
-            "Aprire un pollo"
+            "Aprire un pollo",
+            "Cucinare il vicino di casa"
         ],
-        noTasksMessage: 'Nulla da fare',
+        noTasksMessage: 'Time for relax',
         noTasks: false,
     },
     methods: {
@@ -42,4 +43,8 @@ let app = new Vue({
         }
     }
 });
+
+// document.addEventListener('keydown', function(e){
+//     console.log(this);
+// });
 
