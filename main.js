@@ -14,7 +14,11 @@ let app = new Vue({
     el: '.container',
     data: {
         inputTask: '',
-        inputList: []
+        inputList: [
+            "Comprare le zucche",
+            "Pulire il calderone",
+            "Aprire un pollo"
+        ]
     },
     methods: {
         addTask: function(){
@@ -24,6 +28,9 @@ let app = new Vue({
                 app.inputTask = '';
             }
             return app.inputList;
+        },
+        updateList: function(){
+
         }
     }
 });

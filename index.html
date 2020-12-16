@@ -18,7 +18,7 @@
         }
         body{
             color: #fafafa;
-            background-color: #234;
+            background-color: #1b0e06;
 
         }
         .container{
@@ -84,10 +84,7 @@
             </section>
             <section id="list">
                 <ul>
-                    <!-- <li v-for:><i class="fas fa-skull-crossbones"></i></li> -->
-                    <li>Comprare le zucche <i class="fas fa-skull-crossbones"></i></li>
-                    <li>Pulire il calderone <i class="fas fa-skull-crossbones"></i></li>
-                    <li>Aprire un pollo <i class="fas fa-skull-crossbones"></i></li>
+                    <li v-for="task in inputList">{{task}}<i class="fas fa-skull-crossbones"></i></li>
                 </ul>
         </div>
     </div>
