@@ -28,7 +28,7 @@ let app = new Vue({
     methods: {
         addTask: function(){            
             if (app.inputTask.length > 4) {
-                //Azzero il valore del doppio inserimento
+                //Azzera il valore del doppio inserimento
                 app.doubleTask = false;
                 //Se inseriamo una task la seguente condizione sarà ovviamente falsa.
                 app.noTasks = false;
